@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+.agregarTarea{
+  display: flex;
+  flex-direction: row;  
+}
+.tasca {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 20px 0px 0px 0px;
+}
+.tascaCompletada {
+  text-decoration: line-through;
+  background-color: rgba(128, 128, 128, 0.292);
+}
+
+.noCompletada {
+  background-color: rgb(45, 106, 159);
+}
