@@ -1,13 +1,13 @@
 import React from "react";
 
-const FormulariTasques = ()=> {
+const FormulariTasques = ({onSubmit})=> {
 
     return (
         <>
-            <div className="agregarTarea">
+            <form className="agregarTarea" onSubmit={onSubmit}>
                 <input type="text" placeholder="nueva tarea"></input>
                 <button>añadir tarea</button>
-            </div>
+            </form>
         </>
     )
 }
