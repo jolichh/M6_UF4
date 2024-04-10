@@ -6,7 +6,7 @@ const FormulariTasques = ({onSubmit})=> {
         <>
             <form className="agregarTarea" onSubmit={onSubmit}>
                 <input type="text" placeholder="nueva tarea"></input>
-                <button>añadir tarea</button>
+                <button type="submit">añadir</button>
             </form>
         </>
     )
