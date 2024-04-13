@@ -1,15 +1,18 @@
 import React from "react";
+import { useState } from "react";
 
 const FormulariTasques = ({onSubmit})=> {
+    const [tarea, setTarea] = useState("");
     const controlarSubmit = (e) =>{
         e.preventDefault();
-        const tarea = e.target.elements.value;
+        
         onSubmit(tarea);
+        setTarea("");
     }
     return (
         <>
             <form className="agregarTarea" onSubmit={controlarSubmit}>
-                <input type="text" placeholder="nueva tarea"></input>
+                <input type="text" value={tarea} placeholder="Nueva tarea" onChange={(e)=>setTarea(e.target.value)}></input>
                 <button type="submit">añadir</button>
             </form>
         </>
