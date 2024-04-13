@@ -4,21 +4,31 @@ import FormulariTasques from './FormulariTasques'
 import { useState } from 'react'
 
 const LlistatTasques = () => {
-  const[tasques, setTareas] = useState([{"id":"1","content":"PRUEa"}]);
+  const[tasques, setTareas] = useState([]);
   
-  const afegirTasca = (tascaNova)=>{
+  const afegirTasca = (textTascaNova)=>{
     const nova = {
             "id": tasques.length+1,
-            "content": tascaNova,
+            "content": textTascaNova,
+            "completada": false,
           }
     const tasquesActuals = [...tasques, nova];
     setTareas(tasquesActuals);
-console.log("sholas")
   }
+
   const eliminarTasca = id =>{
     const tasquesRestants = tasques.filter((tasca) => tasca.id !== id);
-console.log(tasques)
     setTareas(tasquesRestants);
+  }
+
+  const completarTasca = id => {
+    const tasquesActualitzat = tasques.map((tasca)=>{
+      if (tasca.id === id){
+        return {...tasca, completada: !tasca.completada} //invertir estado
+      }
+      return tasca; //devolver los que no coincide id
+    })
+    setTareas(tasquesActualitzat);
   }
 
   return (
@@ -28,7 +38,7 @@ console.log(tasques)
             <div className='contentTarea'>
             <FormulariTasques onSubmit={afegirTasca}></FormulariTasques>
             {tasques.map((tasca) =>(
-              <Tasca key={tasca.id} id={tasca.id} content={tasca.content} completada={false} onClick={()=>eliminarTasca(tasca.id)}></Tasca>
+              <Tasca key={tasca.id} id={tasca.id} content={tasca.content} completada={tasca.completada} onClick={()=>eliminarTasca(tasca.id)} onComplete={()=>completarTasca(tasca.id)}></Tasca>
             ))}
             </div>
         </div>

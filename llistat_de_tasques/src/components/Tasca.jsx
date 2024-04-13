@@ -1,7 +1,7 @@
 import React from "react";
-import {AiOutlineDelete} from 'react-icons/ai';
+import {AiOutlineDelete, AiOutlineCheck, AiOutlineUndo} from 'react-icons/ai';
 
-const Tasca = ({completada, content, onClick}) =>{
+const Tasca = ({completada, content, onClick, onComplete}) =>{
     const estat = completada? "tascaCompletada":"noCompletada"
     const clases = ['tasca',estat]
     
@@ -9,10 +9,14 @@ const Tasca = ({completada, content, onClick}) =>{
         <>
             <div className={clases.join(' ')}>
                 <p>{content}</p>
-                <button onClick={onClick}>
-                    <AiOutlineDelete>X</AiOutlineDelete>
-                </button>
-
+                <div className="botones">
+                    <button onClick={onComplete}>
+                        {completada? <AiOutlineUndo/> :<AiOutlineCheck/> }
+                    </button>
+                    <button onClick={onClick} >
+                        <AiOutlineDelete/>
+                    </button>
+                </div>
             </div>
         </>
     )
