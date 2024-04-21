@@ -43,42 +43,42 @@ Exemple de session id: **e0d31ad1cbaaecfc92314bf630cc80a419974560**
 
 2. Mitjançant el postman llista totes les pel·lícules preferides
 
-```
-    https://api.themoviedb.org/3/account/{account_id}/favorite/movies
-``` 
-![Listado favoritas](/img/favs.png)
+    ```
+        https://api.themoviedb.org/3/account/{account_id}/favorite/movies
+    ``` 
+    ![Listado favoritas](img/favs.png)
 
 3. Mitjançant el postman fes una cerca d’alguna pel·lícula que t’agradi
 
-```
-    https://developers.themoviedb.org/3/search/search-movies
-```
-*Segurament et sortirà més d’un resultat. Copia l’id d’alguna d’aquestes pel·lícules per al següent exercici
-![Pelicula que m'agrada](/img/frozen.png)
+    ```
+        https://developers.themoviedb.org/3/search/search-movies
+    ```
+    *Segurament et sortirà més d’un resultat. Copia l’id d’alguna d’aquestes pel·lícules per al següent exercici
+    ![Pelicula que m'agrada](img/frozen.png)
 
 4. Afegeix la pel·lícula a watchlist
-```
-    https://developers.themoviedb.org/3/account/add-to-watchlist
-```
-*A través del teu espai personal comprova que la pel·lícula s’hagi afegit correctament.
-![Watchlist](/img/watchlist.png)
+    ```
+        https://developers.themoviedb.org/3/account/add-to-watchlist
+    ```
+    *A través del teu espai personal comprova que la pel·lícula s’hagi afegit correctament.
+    ![Watchlist](img/watchlist.png)
 
 5. Crea una nova llista
-```
-    https://developers.themoviedb.org/3/lists/create-list
-```
-*A través del teu espai personal comprova que la llista s’hagi afegit correctament.
-![create list](/img/createList.png)
+    ```
+        https://developers.themoviedb.org/3/lists/create-list
+    ```
+    *A través del teu espai personal comprova que la llista s’hagi afegit correctament.
+    ![create list](img/createList.png)
 
 6. Mostra les llistes creades
-```
-    https://developers.themoviedb.org/3/account/get-created-lists
-```
-*Guarda’t l’ID de la llista creada pel següent exercici
-![listado de listas](/img/getLists.png)
+    ```
+        https://developers.themoviedb.org/3/account/get-created-lists
+    ```
+    *Guarda’t l’ID de la llista creada pel següent exercici
+    ![listado de listas](img/getLists.png)
 
 7. Afegeix una pel·lícula a la llista
-```
-    https://developers.themoviedb.org/3/lists/add-movie
-```
-![Añadir a mi lista](/img/addToList.png)
+    ```
+        https://developers.themoviedb.org/3/lists/add-movie
+    ```
+    ![Añadir a mi lista](img/addToList.png)
