@@ -9,8 +9,32 @@ let moviesResult = document.getElementById("moviesResult");
 
 
 async function setFav(id, favBool){
+    console.log("id: "+id);
+    console.log("antes: "+favBool);
     moviesResult.innerHTML="";
-
+    
+    //favBool = !favBool;    
+    const options = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MDcxZjBjOWUyMTYyN2MxZGQ1ZjYzNTczNDU3MzY1NSIsInN1YiI6IjY2MWQ1Nzk1ZTQ4ODYwMDE4NTNiOTg3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._WwPgOLeMWz55o-WMDHfxcI3hqEbp_32VoJU3SsLdkc'
+        },
+        body: JSON.stringify({media_type: 'movie', media_id: 550, favorite: favBool})
+    };
+      
+    fetch('https://api.themoviedb.org/3/account/21215424/favorite', options)
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err => console.error(err));
+    
+    
+        console.log(id+" marked as "+favBool);
+    // favBool = !favBool;
+    // console.log(id+" marked as "+favBool);
     showFavs();
 }
 
@@ -35,7 +59,8 @@ async function showFavs(){
         
 }
 
-function searchMovies(query){
+async function searchMovies(query){
+    
     clearInput();
     removeActive();
 }
