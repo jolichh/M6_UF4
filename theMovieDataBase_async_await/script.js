@@ -8,15 +8,31 @@ const keys = {
 let moviesResult = document.getElementById("moviesResult");
 
 
-function setFav(id, favBool){
+async function setFav(id, favBool){
     moviesResult.innerHTML="";
 
     showFavs();
 }
 
-function showFavs(){
+//mostrar pelis marcadas como favs
+async function showFavs(){
     moviesResult.innerHTML="";
-
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MDcxZjBjOWUyMTYyN2MxZGQ1ZjYzNTczNDU3MzY1NSIsInN1YiI6IjY2MWQ1Nzk1ZTQ4ODYwMDE4NTNiOTg3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._WwPgOLeMWz55o-WMDHfxcI3hqEbp_32VoJU3SsLdkc'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/account/21215424/favorite/movies?language=en-US&page=1&sort_by=created_at.asc', options)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            data.results.forEach(movie => printMovie(movie, true, false));
+        })
+        .catch(err => console.error(err));
+        
 }
 
 function searchMovies(query){
@@ -68,6 +84,9 @@ function removeActive(){
 }
 
 /* Funció per printar les pel·lícules */
+/* El primer paràmetre serà l’objecte de la pel·lícula
+El segon el de fav (que en aquest cas sempre serà true)
+El tercer el de watchlist (que de moment no us demano implementar)*/
 function printMovie(movie, fav, watch){
 
     let favIcon = fav ? 'iconActive' : 'iconNoActive';
