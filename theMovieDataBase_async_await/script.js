@@ -7,6 +7,25 @@ const keys = {
 
 let moviesResult = document.getElementById("moviesResult");
 
+var total_pages = 0;
+var current_page = 1;
+var current_query = "";
+window.addEventListener('scroll', () => {
+    const {scrollTop, scrollHeight,clientHeight} =
+    document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5 &&
+        current_page<total_pages) {
+            loading();
+            searchMovies(current_query);
+            hideLoading();
+        }
+});
+function loading() {
+    document.getElementById('loading').style.display = 'block';
+}
+function hideLoading() {
+    document.querySelector('#loading').style.display = 'none';
+}
 
 async function setFav(id, favBool){
     console.log("id: "+id);
@@ -55,7 +74,15 @@ async function showFavs(){
         
 }
 
-async function searchMovies(query){    
+async function searchMovies(query){   
+    //nueva busqueda
+    if (current_query != query) {
+        current_page = 1;
+        moviesResult.innerHTML="";
+    }
+    //cuando haga scroll
+    current_query = query;
+
     const options = {
         method: 'GET',
         headers: {accept: 'application/json', Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MDcxZjBjOWUyMTYyN2MxZGQ1ZjYzNTczNDU3MzY1NSIsInN1YiI6IjY2MWQ1Nzk1ZTQ4ODYwMDE4NTNiOTg3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._WwPgOLeMWz55o-WMDHfxcI3hqEbp_32VoJU3SsLdkc'}
@@ -64,10 +91,16 @@ async function searchMovies(query){
     await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options)
         .then(response => response.json())
         .then(data => {
+            console.log("total pages: "+JSON.stringify(data.total_pages));
+            total_pages = data.total_pages;
             moviesResult.innerHTML="";//limpiar contenido para mostrar solo resultados del search
             data.results.forEach(movie => {            
                 printMovie(movie, esFav(movie.id),false);
             });
+            // Incrementar la pàgina actual si encara hi ha més pàgines disponibles
+            if (current_page < total_pages) {
+                current_page++;
+            }
         })
     .catch(err => console.error(err));
 
