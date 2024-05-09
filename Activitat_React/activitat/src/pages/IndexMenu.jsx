@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
-import MovieCard from '../components/MovieCard'
+import Card from '../components/Card'
 
 const IndexMenu = () => {
   
   return (
     <>
-        <MovieCard></MovieCard>
-        <MovieCard></MovieCard>
+        <Card title="list"></Card>
+        <Card title="add"></Card>
     </>
   )
 }

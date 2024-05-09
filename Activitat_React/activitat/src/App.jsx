@@ -35,8 +35,8 @@ function App() {
 
   return (  
     <>
-
     <Router>
+
       <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder='Introduce nombre'></input>
         <button type="submit"></button>
@@ -56,7 +56,6 @@ function App() {
       </Routes>
 
     </Router>
-
     </>
   )
 }
