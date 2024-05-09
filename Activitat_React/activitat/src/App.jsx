@@ -6,7 +6,7 @@ import Welcome from './components/Welcome'
 import MovieCard from './components/MovieCard'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IndexMenu from './pages/IndexMenu.jsx'
-import MoviesAdd from './pages/MoviesAdd'
+import MoviesAdd from './components/MoviesAdd.jsx'
 import MoviesList from './pages/MoviesList'
 import ReactDOM from "react-dom";
 
@@ -42,13 +42,13 @@ function App() {
         <button type="submit"></button>
       </form>
       <Welcome username={username}></Welcome>
-      <MovieCard title={movieData.title} image={movieData.image} rate={movieData.rate} direction={movieData.direction}></MovieCard>
+      {/* <MovieCard title={movieData.title} image={movieData.image} rate={movieData.rate} direction={movieData.direction}></MovieCard> */}
       
       {/*swtich evita que se renderize multiples componentes si el nombre coincide parcialmente con otras*/}
       {/* usamons element para definir el componente ya que no es un componente de Route component */}
       <Routes>
         {/* Ruta para la página de inicio */}
-        <Route exact path="/" element={<IndexMenu/>} />        
+        <Route exact path="/" element={<IndexMenu/>} />
         {/* Ruta para la lista de películas */}
         <Route path="/movies/list" element={<MoviesList />} />        
         {/* Ruta para agregar una nueva película */}
