@@ -21,6 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //instancia firestore
 const db = getFirestore(app);
-console.log("firestore: "+JSON.stringify(db));
+//console.log("firestore: "+JSON.stringify(db));
 
 export default db;

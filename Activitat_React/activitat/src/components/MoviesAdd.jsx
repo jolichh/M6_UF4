@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import MovieCard from './MovieCard'
 import db from '../config/config'
+import { addDoc, collection } from 'firebase/firestore'
 
 const moviesAdd = () => {
   
@@ -18,11 +19,21 @@ const moviesAdd = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("afegir");
-    // Guardar en la base de datos de Firebase
-    db.collection('movies').add(formData)
-      .then(() => {
-        console.log('Película agregada con éxito');
-        // Limpiar el formulario después de agregar la película
+    // Obtener datos del form
+    const formData = {
+      title: e.target.elements.title.value,
+      description: e.target.elements.description.value,
+      director: e.target.elements.director.value,
+      imageUrl: e.target.elements.imageUrl.value,
+      rating: e.target.elements.rating.value,
+      year: e.target.elements.year.value,
+      duration: e.target.elements.duration.value
+    };
+    console.log(formData);
+    
+    var movies_ref = collection(db, "movies");
+    addDoc(movies_ref, formData).then((doc)=>{console.log(doc)});
+    //Limpiar el formulario después de agregar la película
         setFormData({
           title: '',
           description: '',
@@ -32,10 +43,6 @@ const moviesAdd = () => {
           year: '',
           duration: ''
         });
-      })
-      .catch((error) => {
-        console.error('Error al agregar la película:', error);
-      });
   }
   const handleChange = (e) => {
     const { name, value } = e.target;

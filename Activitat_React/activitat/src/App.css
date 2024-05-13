@@ -7,6 +7,13 @@
 #root {
  width: 100%;
 }
+.app-container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;  /*alinea texto centrado*/
+}
 /* 
 @keyframes logo-spin {
   from {

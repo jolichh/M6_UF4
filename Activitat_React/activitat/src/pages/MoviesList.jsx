@@ -24,9 +24,12 @@ const MovieList = ({ username }) => {
             <MovieCard 
               key={i}
               title={movie.title}
-              image={movie.image}
-              rate={movie.rate}
-              direction={movie.direction}
+              image={movie.imageUrl}
+              rate={movie.rating}
+              direction={movie.director}
+              description={movie.description}
+              year={movie.year}
+              duration={movie.duration}
             ></MovieCard>
           ))}
     </>
