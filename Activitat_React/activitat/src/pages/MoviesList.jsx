@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import MovieCard from '../components/MovieCard'
+import { collection, getDocs } from 'firebase/firestore'
+import db from '../config/config'
 
 const MovieList = ({ username }) => {
-  var array_movie = [
-    { title: 'Inception', image: 'inception.jpg', rate: 8.8, direction: 'Christopher Nolan' },
-    { title: 'Interstellar', image: 'interstellar.jpg', rate: 8.6, direction: 'Christopher Nolan' },
-    { title: 'The Dark Knight', image: 'dark_knight.jpg', rate: 9.0, direction: 'Christopher Nolan' },
-  ]
+  const [array_movie, setArray_movie ]= useState([])
+  
+  useEffect(()=>{
+    var movies_ref = collection(db, "movies")
+    getDocs(movies_ref).then((doc)=>{
+      console.log(doc);
+      console.log(doc.docs.map((doc)=>{ return {...doc.data(), id:doc.id}}))
+      var data = doc.docs.map((doc)=>{ return {...doc.data(), id:doc.id}})
+      //mapea solo
+      setArray_movie(data)
+      console.log(data);
+    })
+  },[])
   return (
     <>
-        <p>movieslist</p>
-        <ul>
           {array_movie.map((movie, i) =>(
             <MovieCard 
               key={i}
@@ -21,7 +29,6 @@ const MovieList = ({ username }) => {
               direction={movie.direction}
             ></MovieCard>
           ))}
-        </ul>
     </>
   )
 }

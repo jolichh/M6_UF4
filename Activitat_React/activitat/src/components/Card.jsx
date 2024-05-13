@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/card_style.css'
 
 const Card = ({ title }) => {
   var ruta = '/movies/'+title;
@@ -13,7 +14,7 @@ const Card = ({ title }) => {
 
   return (
     <>
-        <div>
+        <div className='container'>
             <Link to={ruta}>
                 <p>{text}</p>
             </Link>

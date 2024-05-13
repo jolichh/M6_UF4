@@ -23,6 +23,11 @@ a:hover {
 }
 
 body {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -65,4 +70,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
