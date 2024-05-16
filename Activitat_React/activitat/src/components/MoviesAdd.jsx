@@ -3,6 +3,7 @@ import { useState } from 'react'
 import MovieCard from './MovieCard'
 import db from '../config/config'
 import { addDoc, collection } from 'firebase/firestore'
+import '../styles/generic-style.css'
 
 const moviesAdd = () => {
   
@@ -50,38 +51,45 @@ const moviesAdd = () => {
   };
   return (
     <>
-        <h1>moviesAdd</h1>
-        <form onSubmit={handleSubmit}>
-          <label>Título:
-          <input type="text" name="title" value={formData.title} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Descripción:
-          <textarea name="description" value={formData.description} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Director:
-          <input type="text" name="director" value={formData.director} onChange={handleChange} />
-        </label>
-        <br />
-        <label>URL de la imagen:
-          <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Calificación (1-5):
-          <input type="number" name="rating" value={formData.rating} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Año:
-          <input type="number" name="year" value={formData.year} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Duración (min):
-          <input type="number" name="duration" value={formData.duration} onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">Agregar Película</button>
-        </form>
+      <div className='moviesAdd'>
+        <h1>Afegeix una pel·licula:</h1>
+        <div className='form-add'>
+          
+          <form onSubmit={handleSubmit}>
+            <label className='label'>Títol:
+            <input className='input' type="text" name="title" value={formData.title} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>Descripció:
+            <input className='input' type="text" name="description" value={formData.description} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>Director:
+            <input className='input'type="text" name="director" value={formData.director} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>URL de la imatge:
+            <input className='input' type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>Calificació (1-5):
+            <input className='input' type="number" name="rating" value={formData.rating} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>Any:
+            <input className='input' type="number" name="year" value={formData.year} onChange={handleChange} />
+            </label>
+            <br />
+            <label className='label'>Duració (en minuts):
+            <input className='input' type="number" name="duration" value={formData.duration} onChange={handleChange} />
+            </label>
+            <br />
+            <div className='but-form'>
+              <button type="submit">Afegir película</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </>
   )
 }

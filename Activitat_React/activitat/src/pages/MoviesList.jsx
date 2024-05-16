@@ -3,9 +3,12 @@ import { useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import { collection, getDocs } from 'firebase/firestore'
 import db from '../config/config'
+import { Link } from 'react-router-dom'
 
 const MovieList = ({ username }) => {
   const [array_movie, setArray_movie ]= useState([])
+  var rutaHome = '/';
+  var rutaAdd = '/movies/add';
   
   useEffect(()=>{
     var movies_ref = collection(db, "movies")
@@ -20,6 +23,8 @@ const MovieList = ({ username }) => {
   },[])
   return (
     <>
+    
+      <div className='div-list'>
           {array_movie.map((movie, i) =>(
             <MovieCard 
               key={i}
@@ -32,6 +37,31 @@ const MovieList = ({ username }) => {
               duration={movie.duration}
             ></MovieCard>
           ))}
+      </div>
+
+      <div className='ruta'>
+        <Link to={rutaHome}>
+        <div className="tooltip-container">
+          <span className="tooltip">Home</span>
+          <span className="text">
+            <div className="borde-back">
+              <div className="icon">
+              </div>
+            </div>
+          </span>
+        </div>
+        </Link>
+        <Link to={rutaAdd}>
+          <div className="tooltip-container">
+            <span className="text">
+              <div className="borde-back"></div>
+              <div className="icon"></div>
+            </span>
+            <span className="tooltip">Afegir pel·licula</span>
+          </div>
+        </Link>
+      </div>
+      
     </>
   )
 }

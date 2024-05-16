@@ -1,21 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
-import '../styles/movieCard_style.css'
+import '../styles/generic-style.css'
 
 const MovieCard = ({ title, image, rate, direction, description, year, duration }) => {
   
   return (
     <>
-        <div className='container-movieCard'>
-            <h2>{title}</h2>
-            <div className='info'>
-              <img src={image}></img>
-              <li></li>
-              <li>Rate: {rate}</li>
-              <li>Direction: {direction}</li>
-              <p>Description: {description}</p>
-              <p>Year: {year}</p>
-              <p>Duration: {duration}</p>
+    
+        <div className="card">
+          <div className="image"><img src={image}></img></div>
+            <div className="content">
+              <a href="#">
+                <span className="title">{title}</span>
+              </a>
+              <p className="desc">Rate: {rate}</p>
+              <p className="desc">Direction: {direction}</p>
+              <p className="desc">Description: {description}</p>
+              <p className="desc">Year: {year}</p>
+              <p className="desc">Duration: {duration}</p>
             </div>
         </div>
     </>
