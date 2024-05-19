@@ -23,7 +23,19 @@ const MovieList = ({ username }) => {
   },[])
   return (
     <>
-    
+      <div className='ruta'>
+        <Link to={rutaHome}>
+        <button className="button">
+          <span className="lable">Home</span>
+        </button>
+        </Link>
+        <Link to={rutaAdd}>
+        <button className="button">
+          <span className="lable">Afegir pel·licula</span>
+        </button>
+        </Link>
+      </div>
+
       <div className='div-list'>
           {array_movie.map((movie, i) =>(
             <MovieCard 
@@ -39,28 +51,7 @@ const MovieList = ({ username }) => {
           ))}
       </div>
 
-      <div className='ruta'>
-        <Link to={rutaHome}>
-        <div className="tooltip-container">
-          <span className="tooltip">Home</span>
-          <span className="text">
-            <div className="borde-back">
-              <div className="icon">
-              </div>
-            </div>
-          </span>
-        </div>
-        </Link>
-        <Link to={rutaAdd}>
-          <div className="tooltip-container">
-            <span className="text">
-              <div className="borde-back"></div>
-              <div className="icon"></div>
-            </span>
-            <span className="tooltip">Afegir pel·licula</span>
-          </div>
-        </Link>
-      </div>
+      
       
     </>
   )

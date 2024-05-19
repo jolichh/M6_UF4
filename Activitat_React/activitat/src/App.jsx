@@ -9,6 +9,7 @@ import MoviesAdd from './components/MoviesAdd.jsx'
 import MoviesList from './pages/MoviesList'
 import ReactDOM from "react-dom";
 
+
 function App() {
   const [username, setUsername] = useState('')
   const [movieData, setMovieData] = useState(''); // Almacenar los datos de la película
@@ -38,9 +39,9 @@ function App() {
       <div className='app-container'>
 
         <div className='header'>
-          <form onSubmit={handleSubmit}>
-            <input className='form-input' type="text" name="username" placeholder='Introduce nombre'></input>
-            <button className='form-but' type="submit">Guardar</button>
+          <form className="input-container" onSubmit={handleSubmit}>
+            <input className='' type="text" name="username" placeholder='Introduce nombre'></input>
+            <button className='form-btn' type="submit">Guardar</button>
           </form>
           <Welcome username={username}></Welcome>
         </div>

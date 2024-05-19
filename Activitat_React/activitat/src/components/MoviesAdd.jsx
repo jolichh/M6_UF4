@@ -4,9 +4,11 @@ import MovieCard from './MovieCard'
 import db from '../config/config'
 import { addDoc, collection } from 'firebase/firestore'
 import '../styles/generic-style.css'
+import { Link } from 'react-router-dom'
 
 const moviesAdd = () => {
-  
+  var rutaHome = '/';
+  var rutaList = '/movies/list';
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -51,6 +53,19 @@ const moviesAdd = () => {
   };
   return (
     <>
+      <div className='ruta'>
+        <Link to={rutaHome}>
+        <button className="button">
+          <span className="lable">Home</span>
+        </button>
+        </Link>
+        <Link to={rutaList}>
+        <button className="button">
+          <span className="lable">Llista de pel·licules</span>
+        </button>
+        </Link>
+      </div>
+
       <div className='moviesAdd'>
         <h1>Afegeix una pel·licula:</h1>
         <div className='form-add'>
@@ -85,7 +100,7 @@ const moviesAdd = () => {
             </label>
             <br />
             <div className='but-form'>
-              <button type="submit">Afegir película</button>
+              <button className="buttAdd"type="submit">Afegir película</button>
             </div>
           </form>
         </div>

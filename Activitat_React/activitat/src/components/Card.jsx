@@ -16,11 +16,11 @@ const Card = ({ title }) => {
     <>
     
         <div className='container-card'>
-          <div className='box'>
-            <Link to={ruta}>
-                <span className='card-p'>{text}</span>
-            </Link>
-          </div>
+          <Link to={ruta}>
+            <button className='box'>   
+                <span className='label'>{text}</span>
+            </button>
+          </Link>
         </div>
     </>
   )
