@@ -72,31 +72,31 @@ const moviesAdd = () => {
           
           <form onSubmit={handleSubmit}>
             <label className='label'>Títol:
-            <input className='input' type="text" name="title" value={formData.title} onChange={handleChange} />
+            <input className='input' type="text" name="title" value={formData.title} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>Descripció:
-            <input className='input' type="text" name="description" value={formData.description} onChange={handleChange} />
+            <input className='input' type="text" name="description" value={formData.description} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>Director:
-            <input className='input'type="text" name="director" value={formData.director} onChange={handleChange} />
+            <input className='input'type="text" name="director" value={formData.director} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>URL de la imatge:
-            <input className='input' type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
+            <input className='input' type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>Calificació (1-5):
-            <input className='input' type="number" name="rating" value={formData.rating} onChange={handleChange} />
+            <input className='input' type="number" name="rating" value={formData.rating} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>Any:
-            <input className='input' type="number" name="year" value={formData.year} onChange={handleChange} />
+            <input className='input' type="number" name="year" value={formData.year} onChange={handleChange} required/>
             </label>
             <br />
             <label className='label'>Duració (en minuts):
-            <input className='input' type="number" name="duration" value={formData.duration} onChange={handleChange} />
+            <input className='input' type="number" name="duration" value={formData.duration} onChange={handleChange} required/>
             </label>
             <br />
             <div className='but-form'>
