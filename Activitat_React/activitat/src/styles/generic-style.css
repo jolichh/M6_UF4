@@ -1,0 +1,246 @@
+/* generic style*/
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    margin: 0;
+}
+.app-container {
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+a {
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+h1 {
+    font-size: 2em;
+    line-height: 1.1;
+    padding: 0;
+    margin: 15px 0px;
+}
+p {
+    margin: 5px 0px;
+}
+/* fin generic style*/
+
+/* CARD DEL HOME*/
+/*formulario header*/
+.header {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+}
+.input-container {
+    display: flex;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 8px;
+}
+.input-container input {
+    border: 1px solid  rgb(176 190 197);
+    background-color: transparent;
+    font-weight: 400;
+    color: #fff;
+    outline: none;
+}
+  
+.input-container input:focus {
+    border: 1px solid #056bfa49;
+}
+/* .form-btn {
+    border-radius: 0px;
+} */
+button {
+    appearance: none;
+    border: 1px gray solid;
+}
+.form-btn:hover {
+    cursor: pointer;
+    /* opacity: 0.5; */
+    background-color: #0057b363;
+    border: 1px #0057b363 solid;;
+}
+  
+  
+/*caja de botones ruta del HOME*/
+.container-card {
+    color: white;
+    position: relative;
+    font-family: sans-serif;
+    margin: 25px 5px 5px;
+    display: flex;
+    justify-content: center;
+}
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 8px;
+    height: 80px;
+    border: none;
+    background: #056bfa27;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.box:hover {
+    background: #056bfa49;
+    box-shadow: 0px 0px 5px 1px #056bfa49;
+    /* border: 1px solid rgba(255, 255, 255, 0.454); */
+}
+
+/* MOVIE LIST CARD */
+.div-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} 
+.info {
+    padding: 0px 0px 20px 0px;
+    list-style: none;
+} 
+.card {
+    display: flex;
+    width: 30rem;
+    min-height: 15rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.078);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+    margin: 20px;
+}
+.card a {
+    text-decoration: none
+}
+.content {
+    padding: 1rem;
+    width: 100%;
+}
+.image {
+    width: 70%;
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+.image img {
+    width: 100%; /* Asegura que la imagen llene todo el contenedor */
+    height: 100%; /* Asegura que la imagen llene todo el contenedor */
+    object-fit: cover; /* Escala la imagen para que llene el contenedor */
+}
+.title {
+    color: #fff;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}  
+.desc {
+    margin-top: 0.5rem;
+    color: #a9b6cf;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+/* FIN MOVIE LIST CARD */
+
+/* FORM ADD */
+.form-add {
+    width: 55vw;
+}
+/* BOTON */
+.but-form {
+    display: grid;
+    justify-content: center;
+}
+.form-add .buttAdd {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-self: center;
+} 
+.form-add .buttAdd:hover {
+    background-color: #0056b3;
+}
+
+/*LABEL + INPUT*/
+.input {
+    max-width: 490px;
+    width: 60%;
+    height: 40px;
+    background-color: #05060f0a;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.87);;
+    font-size: 1rem;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+.label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.87);
+    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+.input:hover, .input:focus, .input-group:hover .input {
+    outline: none;
+    border-color: #0056b3;
+}
+.input-group:hover .label, .input:focus {
+    color: #fff;
+}
+
+/* FIN FORM ADD*/
+
+/* RUTA */
+.ruta {
+    display: flex;
+    justify-content: center;
+}
+.ruta a {
+    margin: 20px;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px 8px 16px;
+    gap: 8px;
+    height: 30px;
+    border: none;
+    background: #056bfa27;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.lable {
+    margin-top: 1px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #056DFA;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.button:hover {
+    background: #056bfa49;
+}
