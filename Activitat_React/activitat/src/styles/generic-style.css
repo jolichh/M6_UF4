@@ -116,6 +116,7 @@ button {
     padding: 0px 0px 20px 0px;
     list-style: none;
 } 
+/* card de cada movie */
 .card {
     display: flex;
     width: 30rem;
@@ -134,7 +135,7 @@ button {
     width: 100%;
 }
 .image {
-    width: 70%;
+    width: 80%;
     overflow: hidden; /* Asegura que la imagen no se desborde */
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -155,6 +156,19 @@ button {
     color: #a9b6cf;
     font-size: 0.875rem;
     line-height: 1.25rem;
+}
+.delete-but {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0px 8px 8px 0px;
+}
+.butt-movie {
+    border: none;
+    background-color: #ff1a1a89;
+}
+.butt-movie:hover {
+    cursor: pointer;
+    background-color: rgb(235, 24, 24);
 }
 /* FIN MOVIE LIST CARD */
 
